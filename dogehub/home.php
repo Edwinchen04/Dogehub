@@ -26,9 +26,9 @@
     
       <nav class="navigations">
         <ul class="nav_links">
-          <li><a href="about.php">About Us</a></li>
-          <li><a href="adopt.php">Adopt</a></li>
-          <li><a href="donate.php">Donate</a></li>
+          <li><a href="about.php"><button>About Us</button></a></li>
+          <li><a href="adopt.php"><button>Adopt</button></a></li>
+          <li><a href="donate.php"><button>Donate</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
