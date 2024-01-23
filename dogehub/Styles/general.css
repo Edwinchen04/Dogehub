@@ -1,0 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,700;1,500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&display=swap');
+
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #c9d6ff;
+  }
+  
+
+.main{
+    height: 300px;
+    background-color: #c9d6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    
+    position: relative;
+    color: #512da8;
+    font-family: 'Inknut Antiqua', serif;
+    
+  }
+}
+
+h1 span::before {
+  position: absolute;
+  content: "";
+  background: #512da8;
+  width: 2px;
+  height: 45px;
+  top:50%;
+  right: -10px;
+  transform:translateY(-45%);
+  animation: blink 1s infinite;
+}
+
+h1 span.stop-blinking::before {
+  animation: none;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  
+}
+
+.dynamictext  {
+  position: absolute;
+  margin-top: 125px;
+  
+}
+
+
+.mainbuttons {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+
+
+  .mainbutton {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  img {
+    height: 200px;
+    width: 200px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
+}
+
+.mainbuttons .mainbutton {
+  background-color: #512da8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.mainbuttons .mainbutton:hover {
+  background-color: #c9d6ff;
+  color: #512da8;
+}
