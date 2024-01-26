@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,700;1,500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&display=swap');
+
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  background-color: #c9d6ff;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  padding-bottom: 200px;
+  
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  max-height: 1100px;
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 100px;
+  position: relative;
+  
+}
+
+.addmore {
+  margin-top: 50px;
+}
+
+.wrapper i{
+  font-size: 1.25rem;
+  height: 50px;
+  width: 50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.wrapper i:first-child{
+  left: -22px;
+}
+
+.wrapper i:last-child{
+  right: -22px;
+}
+
+.wrapper .carousel {
+  
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100%/3) - 12px);
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: 0;
+}
+
+.wrapper .carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto ;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+  
+}
+
+.carousel {
+  padding: 20px 0px;
+}
+
+.carousel .card {
+  list-style: none;
+  background: #f0f0f0;
+  height: 342px;
+  border-radius:8px ;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  cursor: pointer;
+  scroll-snap-align: start;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+
+.card .img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  
+  
+}
+
+.card .img img{
+  
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 30%;
+  z-index: 2;
+}
+
+.card .img .backgroundimg {
+  height: 148px;
+  width: 148px;
+  background: #512da8;
+  position: absolute;
+  top: 10px;
+  border-radius: 30%;
+  z-index: 1;
+}
+
+.card h2,
+.card span {
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+.card h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.card span {
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+
+}
+
+.viewmore,.addmorebtn {
+  background-color: #512da8;
+  color: white;
+}
+
+.viewmore:hover,.addmorebtn:hover {
+  padding: 9px 40px;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100%/2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100%/1) - 9px);
+  }
+}
+
+
+/*Dog Form CSS*/
+
+.dog-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.8);
+  transition: top 0ms ease-in-out 200ms,
+              opacity 200ms ease-in-out 0ms,
+              transform 20ms ease-in-out 0ms;
+  
+}
+
+.dog-form.active {
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+  transition: all 300ms ease-in-out 0ms;
+
+}
+
+form {
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+form h1 { 
+  text-align: center; 
+  margin-bottom: 30px; 
+}
+
+form input, textarea { 
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  box-sizing: border-box;
+  color: black; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+  transition: border-color 0.3s; 
+}
+
+form input:focus,textarea:focus { 
+  border-color: #4CAF50; 
+}
+
+form .addmorebtn { 
+  width: 49%; 
+  padding: 10px; 
+  background-color: #512da8; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+form .addmorebtn:hover { 
+  background-color: #FFF; 
+  border: 2px solid #512da8;
+  color: #512da8;
+  padding: none;
+}
+
+.radios {
+  margin: 20px;
+  display: flex;
+  
+}
+
+.radios p {
+  
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 200px;
+}
+
+form input[type="radio"] {
+  margin-top: 15px;
+  width: 200px;
+}
+
+@media (max-width: 600px) 
+{ .form { 
+  padding: 10px; 
+}
+
+
+
+form .addmorebtn { 
+  padding: 5px; font-size: 16px; 
+} 
+}
+
+::placeholder {
+  color: grey;
+}
+
+
+.dog-form .iconx{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.dog-form .iconx:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+
+
+

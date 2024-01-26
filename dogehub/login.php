@@ -58,17 +58,25 @@ if (isset($_POST['sign-in-button'])) {
 
     $sql = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$password'";
 
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
     $rowcount = mysqli_num_rows($result);
-    if ($rowcount == 1){
-      $_SESSION['mySession'] = $row['user_id'];
-      header("Location: homeuser.php");
-    }
-    else{
-      echo '<script type="text/javascript"> alert("Invalid Credentials. Please Try Again.") </script>';
+
+    if ($rowcount == 1) {
+        $_SESSION['mySession'] = $row['user_id'];
+
+        if ($row['user_email'] == 'admin@dogehub') {
+            header("Location: homeadmin.php");
+            exit(); 
+        } else {
+            header("Location: homeuser.php");
+            exit(); 
+        }
+    } else {
+        echo '<script type="text/javascript"> alert("Invalid Credentials. Please Try Again.") </script>';
     }
 }
+
 ?>
 
 </head> 

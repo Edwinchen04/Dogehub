@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,700;1,500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&display=swap');
+
+body{
+  background-color: #c9d6ff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mainbuttons {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  position: absolute;
+  top: 500px;
+  left: 370px;
+
+
+  .mainbutton {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+.mainbuttons .mainbutton {
+  background-color: #c9d6ff;
+  color: #512da8;
+  border: 2px solid #512da8;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.mainbuttons .mainbutton:hover {
+  background-color: #512da8;
+  color: white;
+}
+
+.container  {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 1000px;
+}
+
+.box  {
+  cursor: pointer;
+  background-color: #cdd8fc;
+  height: 200px;
+  width: 80%;
+  border: solid 3px #512da8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: horizontal;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.icons {
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    height: 100px;
+  }
+}
+
+.information  {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.box:hover {
+  transform: scale(0.9) rotate(3deg);
+  transition: 0.2s;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.information h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #512da8;
+  margin-bottom: 10px;
+}

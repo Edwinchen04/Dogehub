@@ -3,6 +3,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600&display=swap');
 
+body{
+  position: relative;
+  overflow: hidden;
+}
+
 
 
 *{
@@ -14,12 +19,17 @@
   
 
 .main{
-    height: 300px;
-    background-color: #c9d6ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 100px;
+  height: 300px;
+  background-color: #c9d6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 400px;
+  top: 50px;
 }
+
 
 h1 {
   font-family: 'Montserrat', sans-serif;
@@ -71,6 +81,9 @@ h1 span.stop-blinking::before {
   display: flex;
   justify-content: center;
   align-items: top;
+  position: absolute;
+  top: 500px;
+  left: 370px;
 
 
   .mainbutton {
@@ -80,26 +93,41 @@ h1 span.stop-blinking::before {
 }
 
 .images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+  left: 800px;
+  top: 150px;
 
-  img {
-    height: 200px;
-    width: 200px;
+  .bgimage1 {
+    height: 500px;
+    width: 500px;
     margin-left: 40px;
     margin-right: 40px;
     border-radius: 50%;
   }
+
 }
 
+.doggo {
+  position: absolute;
+  z-index: -1;
+  bottom: -950px;
+  opacity: 0.5;
+  
+
+  .bgimage2 {
+    height: 200px;
+  }
+  
+}
+
+
 .mainbuttons .mainbutton {
-  background-color: #512da8;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  background-color: #c9d6ff;
+  color: #512da8;
+  border: 2px solid #512da8;
+  border-radius: 10px;
   padding: 10px 20px;
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
@@ -108,6 +136,6 @@ h1 span.stop-blinking::before {
 }
 
 .mainbuttons .mainbutton:hover {
-  background-color: #c9d6ff;
-  color: #512da8;
+  background-color: #512da8;
+  color: white;
 }

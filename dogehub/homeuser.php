@@ -1,7 +1,6 @@
 <?php
-  include("session.php");
+include("session.php");
 ?>
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -15,7 +14,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo" >
+      <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
     </div>
 
     <div class="search">
@@ -37,7 +36,7 @@
       </nav>
       <div class="calltoactions">
         <a class="cta" href="logout.php"><button>Log Out</button></a>
-        
+
       </div>
   </header>
 
@@ -46,7 +45,10 @@
     <div class="dynamictext">
       <span></span>
     </div></h1>
+
   </div>
+
+
   
   <div class="mainbuttons">
     <button class="mainbutton" id="adopt">Adopt</button>
@@ -54,10 +56,13 @@
   </div>
 
   <div class="images">
-    <img src="Images/beagle.png" alt="beagle" id="logo2">
-    <img src="Images/g-retrive.jpeg" alt="golden" id="logo3">
+    <img src="Images/goldenbg.png" alt="Dog 1" class="bgimage1">
   </div>
-  
+
+
+  <div class="doggo">
+    <img src="Images/sus-removebg-preview.png" alt="Dog 2" class="bgimage2">
+  </div>
 
 </body>
 </html>

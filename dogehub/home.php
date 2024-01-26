@@ -26,14 +26,14 @@
     
       <nav class="navigations">
         <ul class="nav_links">
-          <li><a href="about.php"><button>About Us</button></a></li>
+          <li><a href="aboutguest.php"><button>About Us</button></a></li>
           <li><a href="adopt.php"><button>Adopt</button></a></li>
           <li><a href="donate.php"><button>Donate</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
         <a class="cta" href="login.php"><button>Login</button></a>
-        <a class="cta" href="register.php"><button>Register</button></a>
+        <a class="cta" href="login.php"><button>Register</button></a>
       </div>
   </header>
 
@@ -42,7 +42,10 @@
     <div class="dynamictext">
       <span></span>
     </div></h1>
+
   </div>
+
+
   
   <div class="mainbuttons">
     <button class="mainbutton" id="adopt">Adopt</button>
@@ -50,10 +53,12 @@
   </div>
 
   <div class="images">
-    <img src="Images/beagle.png" alt="beagle" id="logo2">
-    <img src="Images/g-retrive.jpeg" alt="golden" id="logo3">
+  <img src="Images/goldenbg.png" alt="Dog 1" class="bgimage1">
   </div>
-  
+
+  <div class="doggo">
+  <img src="Images/sus-removebg-preview.png" alt="Dog 2" class="bgimage2">
+  </div>
 
 </body>
 </html>

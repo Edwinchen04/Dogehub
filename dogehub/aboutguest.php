@@ -11,7 +11,7 @@
 
     <header>
         <div class="logo">
-          <a href="homeadmin.php">
+          <a href="home.php">
           <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
           </a>
         </div>
@@ -34,7 +34,8 @@
             </ul>
           </nav>
           <div class="calltoactions">
-            <a class="cta" href="logout.php"><button>Log Out</button></a>
+            <a class="cta" href="login.php"><button>Log In</button></a>
+            <a class="cta" href="login.php"><button>Register</button></a>
     
           </div>
       </header>
