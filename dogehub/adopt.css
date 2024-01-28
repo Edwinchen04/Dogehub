@@ -9,11 +9,17 @@ header {
   background-color: #494cff;
   color: #fff;
   text-align: center;
-  padding: 1em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  font-size: 1.2em;
+  display: flex;
+  justify-content: space-between;
 }
 
+.nav_links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
 
 .adopt {
   background-color: #512da8;
@@ -22,6 +28,7 @@ header {
   border-radius: 5px; 
   transition: background-color 0.3s ease; 
 }
+
 .adopt:hover {
   background-color: #6a4caf; 
 }
@@ -43,4 +50,10 @@ header {
 
 .dog-card img:hover {
   transform: scale(1.1);
+}
+
+.adoption-frame {
+  margin-top: 20px; 
+  padding: 100px; 
+
 }
