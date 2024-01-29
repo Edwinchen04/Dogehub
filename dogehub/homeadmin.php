@@ -38,7 +38,9 @@ include("session.php");
         <input type="text" placeholder="Search">
       </div>
       <div class="search-icon">
+        <button class="searchicon" name=search-function>
         <img src="Images/search.png" alt="Search Icon" id="search">
+        </button>
       </div>
       
     </div>

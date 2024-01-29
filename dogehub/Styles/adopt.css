@@ -1,0 +1,33 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #c9d6ff;
+}
+
+header {
+  background-color: #494cff;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+}
+
+.adopt{
+  background-color: #512da8;
+  color: white;
+}
+
+.dog-card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dog-card {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.dog-card img {
+  max-width: 100%;
+}

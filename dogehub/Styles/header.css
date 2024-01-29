@@ -115,6 +115,10 @@ li, a, button {
   margin-right : 10px
 }
 
+button.searchicon:hover {
+  background: none;
+}
+
 .search-icon img:hover {
   animation: wiggle 0.5s;
 }
@@ -137,10 +141,12 @@ li, a, button {
   }
 }
 
-.search{
+.search {
   display: flex;
   width: 400px;
   justify-content: space-around;
+  align-items: center;
+  height: 50px;
 }
 
 ::placeholder {
