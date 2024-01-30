@@ -1,6 +1,6 @@
 const container = document.querySelector('.container');
-const whydonateButton = document.querySelector('.whydonate-section header');
-const donateButton = document.querySelector('.donate-section header');
+const whydonateButton = document.querySelector('.whydonate-section .header');
+const donateButton = document.querySelector('.donate-section .header');
 
 donateButton.addEventListener('click', () => {
     container.classList.add('active');

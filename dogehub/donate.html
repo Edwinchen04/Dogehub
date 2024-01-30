@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/donate.css">
+    <link rel="stylesheet" href="Styles/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Donation</title>
 
@@ -12,9 +13,37 @@
 
 <body>
 
+    <header>
+        <div class="logo">
+          <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
+        </div>
+    
+        <div class="search">
+          <div class="searchbar">
+            <input type="text" placeholder="Search">
+          </div>
+          <div class="search-icon">
+            <img src="Images/search.png" alt="Search Icon" id="search">
+          </div>
+          
+        </div>
+        
+          <nav class="navigations">
+            <ul class="nav_links">
+              <li><a href="aboutguest.php"><button>About Us</button></a></li>
+              <li><a href="adopt.php"><button>Adopt</button></a></li>
+              <li><a href="donate.php"><button>Donate</button></a></li>
+            </ul>
+          </nav>
+          <div class="calltoactions">
+            <a class="cta" href="login.php"><button>Login</button></a>
+            <a class="cta" href="login.php"><button>Register</button></a>
+          </div>
+      </header>
+
     <div class="container">
         <div class="whydonate-section">
-            <header>Why Donate?</header>
+            <h1 class="header">Why Donate?</h1>
 
             <div class="whydonate-content">
                 <p>
@@ -45,11 +74,11 @@
             </div>
 
             <div class="donate-section">
-                <header>Donate</header>
+                <h1 class="header">Donate</h1>
                 <br>
             
                 <div id="donation-amounts">     
-                    <header>Donation Amount</header>
+                    <h1 class="header">Donate Amount</h1>
                     <input type="radio" id="amount-10" name="donation-amount" value="10" onchange="proceedToPayment()">
                     <label for="amount-10">RM10</label><br>
                     <input type="radio" id="amount-50" name="donation-amount" value="50" onchange="proceedToPayment()">
@@ -65,7 +94,7 @@
                 </div>
                 
                 <div id="payment-methods" style="display: none;">
-                    <header>Payment Method</header>
+                    <h1 class="header">Payment Method</h1>
                     <div id="selected-amount"></div>
                 
                     <div class="payment-option">
