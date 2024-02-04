@@ -87,10 +87,21 @@ body{
     cursor: pointer;
 }
 
-.donate-section.button{
-    background: #303f9f;
-    color: #fff;
-    border: none;
+
+
+.donation-section .donation-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.donation-section .donation-buttons button {
+    flex-basis: calc(50% - 20px); /* Assuming 10px margin on each side */
+    margin: 10px;
+}
+
+.donation-section .donation-buttons button:last-child {
+    flex-basis: 100%;
 }
 
 .container.active .donate-section{

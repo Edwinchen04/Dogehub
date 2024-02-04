@@ -77,19 +77,18 @@
                 <h1 class="header">Donate</h1>
                 <br>
             
-                <div id="donation-amounts">     
-                    <h1 class="header">Donate Amount</h1>
-                    <input type="radio" id="amount-10" name="donation-amount" value="10" onchange="proceedToPayment()">
-                    <label for="amount-10">RM10</label><br>
-                    <input type="radio" id="amount-50" name="donation-amount" value="50" onchange="proceedToPayment()">
-                    <label for="amount-50">RM50</label><br>
-                    <input type="radio" id="amount-100" name="donation-amount" value="100" onchange="proceedToPayment()">
-                    <label for="amount-100">RM100</label><br>
-                    <input type="radio" id="amount-custom-radio" name="donation-amount" value="custom" onchange="displayCustomAmountInput()">
-                    <label  for="amount-custom-radio">Custom amount: RM</label>
-                    <input type="text" id="amount-custom" name="donation-amount" placeholder="Enter amount" >
-                    <br><button id="custom-amount-button">Enter</button>
-                    <br>
+                <div id="donation-amounts" class="donation-buttons">     
+                    <h1 class="header">Donation Amount</h1>
+                    <button id="amount-10" onclick="proceedToPayment(10)">RM10</button><br>
+                    <button id="amount-50" onclick="proceedToPayment(50)">RM50</button><br>
+                    <button id="amount-100" onclick="proceedToPayment(100)">RM100</button><br>
+                    <button id="amount-200" onclick="proceedToPayment(200)">RM200</button><br>
+                    <button id="amount-custom-button" onclick="displayCustomAmountInput()">Custom</button>
+                    <div id="custom-amount-input" style="display: none;">
+                        <label for="amount-custom">Enter amount: RM</label>
+                        <input type="text" id="amount-custom" placeholder="Enter amount" >
+                        <button onclick="proceedToPayment()">Submit</button>
+                    </div>
                     <br>
                 </div>
                 
@@ -98,7 +97,7 @@
                     <div id="selected-amount"></div>
                 
                     <div class="payment-option">
-                        <input type="radio" id="touch-n-go-option" name="payment-method" value="touch-n-go" onchange="displayPaymentDetails(this.value)">
+                        <input type="radio" id="touch-n-go-option" name="payment-method" value="touch-n-go" onchange="PaymentMethodDetails()">
                         <label for="touch-n-go-option">Touch'N Go/Duitnow</label>
                         <div class="qr-icons">
                             <img src="Images/TNG.png" alt="TNG Icon" style="height: 25px;width: 25px;">
@@ -109,7 +108,7 @@
                     <hr>
                     
                     <div class="payment-option">
-                        <input type="radio" id="bank-transfer-option" name="payment-method" value="bank-transfer" onchange="displayPaymentDetails(this.value)">
+                        <input type="radio" id="bank-transfer-option" name="payment-method" value="bank-transfer" onchange="PaymentMethodDetails()">
                         <label for="bank-transfer-option">Bank Transfer</label>
                         <div class="bank-icons">
                             <img src="Images/bank.png" alt="BANK Icon" style="height: 25px;width: 120px;">
@@ -119,19 +118,26 @@
                     <hr>
 
                     <div class="payment-option">
-                        <input type="radio" id="debit-credit-option" name="payment-method" value="debit-credit" onchange="displayPaymentDetails(this.value)">
+                        <input type="radio" id="debit-credit-option" name="payment-method" value="debit-credit" onchange="PaymentMethodDetails()">
                         <label for="debit-credit-option">Debit/Credit Card</label>
                         <div class="card-icons">
                             <i class="fa-brands fa-cc-visa" style="height: 25px;width: 25px;"></i>
                             <i class="fa-brands fa-cc-mastercard" style="height: 25px;width: 25px;"></i>
                         </div>
                     </div>
+
+                    <button onclick="goBackToDonation()">Back</button>
+                </div>
+                  
+                <div id="payment-method-details" style="display: none;"></div>    
                     
                     <div id="touch-n-go-details" class="payment-details" style="display: none;">
                         <button onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
                         <h3>Touch n GO / Duitnow</h3>
                         <p>Scan the QR code to make a payment</p>
                         <img src="Images/QR.png" alt="TNG QR Code" style="height: 200px;width: 200px;">
+                        <br>
+                        <button onclick="SubmitSection()">Submit</button>
                     </div>
                     
                     <div id="bank-transfer-details" class="payment-details" style="display: none;">
@@ -141,6 +147,8 @@
                         <p>Account Number: 1234567890</p>
                         <p>Account Name: Dogehub</p>
                         <p>Bank: Maybank</p>
+                        <br>
+                        <button onclick="SubmitSection()">Submit</button>
                     </div>
                     
                     <div id="debit-credit-details" class="payment-details" style="display: none;">    
@@ -168,14 +176,11 @@
                                 <input type="text" id="cvv" name="cvv" placeholder="123" required>
                             </div>
                         </form>
+                        <br>
+                        <button onclick="SubmitSection()">Submit</button>
                     </div>
-
-                    <hr><br>
                     
-                    <button onclick="goBackToDonation()">Back</button>
-                    <button onclick="SubmitSection()">Submit</button>
-                
-
+                </div>
                 </div>
             
 

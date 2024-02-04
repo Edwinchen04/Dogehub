@@ -12,42 +12,9 @@ whydonateButton.addEventListener('click', () => {
 
 
 function displayCustomAmountInput() {
-    var customAmountRadio = document.getElementById('amount-custom-radio');
-    var customAmountInput = document.getElementById('amount-custom');
-    if (customAmountRadio.checked) {
-        customAmountInput.style.display = 'inline';
-    } else {
-        customAmountInput.style.display = 'none';
-    }
+    document.getElementById('custom-amount-input').style.display = 'block';
 }
 
-function proceedToPayment() {
-    var selectedAmount;
-    var customAmountRadio = document.getElementById('amount-custom-radio');
-    var customAmountInput = document.getElementById('amount-custom');
-
-    if (customAmountRadio.checked) {
-        selectedAmount = customAmountInput.value;
-    } else {
-        selectedAmount = document.querySelector('input[name="donation-amount"]:checked').value;
-    }
-
-    document.getElementById('selected-amount').textContent = 'Selected amount: RM' + selectedAmount;
-    document.getElementById('donation-amounts').style.display = 'none';
-    document.getElementById('payment-methods').style.display = 'block';
-}
-
-function goBackToDonation() {
-    document.getElementById('donation-amounts').style.display = 'block';
-    document.getElementById('payment-methods').style.display = 'none';
-}
-
-document.getElementById('custom-amount-button').addEventListener('click', validateCustomAmount);
-document.getElementById('amount-custom').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        validateCustomAmount();
-    }
-});
 
 function validateCustomAmount() {
     var customAmount = parseFloat(document.getElementById('amount-custom').value);
@@ -61,24 +28,65 @@ function validateCustomAmount() {
     }
 }
 
-function displayPaymentDetails(value) {
-    // Hide all payment details sections
-    var paymentDetails = document.getElementsByClassName('payment-details');
-    for (var i = 0; i < paymentDetails.length; i++) {
-        paymentDetails[i].style.display = 'none';
+function proceedToPayment(amount) {
+    var selectedAmount;
+    if (amount) {
+        // If an amount is provided, use it
+        selectedAmount = amount;
+    } else {
+        // Otherwise, get the custom amount entered by the user
+        var customAmountInput = document.getElementById('amount-custom');
+        selectedAmount = customAmountInput.value;
     }
 
-    // Hide all payment options
-    var paymentOptions = document.getElementsByClassName('payment-option');
-    for (var i = 0; i < paymentOptions.length; i++) {
-        paymentOptions[i].style.display = 'none';
+    // Validate the selected amount
+    if (!selectedAmount || isNaN(selectedAmount)) {
+        alert('Please enter a valid amount');
+        return;
     }
 
-    // Show the selected payment details section
-    document.getElementById(value + '-details').style.display = 'block';
+    document.getElementById('selected-amount').textContent = 'Selected amount: RM' + selectedAmount;
+    document.getElementById('donation-amounts').style.display = 'none';
+    document.getElementById('payment-methods').style.display = 'block';
+}
 
-    // Show the selected payment option
-    document.getElementById(value + '-option').style.display = 'block';
+function goBackToDonation() {
+    document.getElementById('donation-amounts').style.display = 'block';
+    document.getElementById('payment-methods').style.display = 'none';
+    document.getElementById('amount-custom').value = '';  // Resets the custom donation amount
+
+    // Resets the selected donation amount
+    var selectedAmount = document.querySelector('input[name="donation-amount"]:checked');
+    if (selectedAmount) {
+        selectedAmount.checked = false;
+    }
+}
+
+function PaymentMethodDetails() {
+    var selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    var selectedAmount = document.getElementById('selected-amount').textContent;
+
+    // Store the selected donation amount in localStorage
+    localStorage.setItem('selectedAmount', selectedAmount);
+
+    // Hide all sections
+    document.getElementById('donation-amounts').style.display = 'none';
+    document.getElementById('payment-methods').style.display = 'none';
+
+    // Show the selected payment method details
+    switch (selectedPaymentMethod) {
+        case 'touch-n-go':
+            document.getElementById('touch-n-go-details').style.display = 'block';
+            break;
+        case 'bank-transfer':
+            document.getElementById('bank-transfer-details').style.display = 'block';
+            break;
+        case 'debit-credit':
+            document.getElementById('debit-credit-details').style.display = 'block';
+            break;
+        default:
+            console.error('Invalid payment method: ' + selectedPaymentMethod);
+    }
 }
 
 function goBackToPaymentOptions() {
@@ -88,16 +96,21 @@ function goBackToPaymentOptions() {
         paymentDetails[i].style.display = 'none';
     }
 
-    // Show all payment options
-    var paymentOptions = document.getElementsByClassName('payment-option');
-    for (var i = 0; i < paymentOptions.length; i++) {
-        paymentOptions[i].style.display = 'block';
+    // Show the payment methods section
+    document.getElementById('payment-methods').style.display = 'block';
+
+    // Reset the checked state of the payment method radio buttons
+    var paymentMethods = document.getElementsByName('payment-method');
+    for (var i = 0; i < paymentMethods.length; i++) {
+        paymentMethods[i].checked = false;
     }
 }
 
 // Add event listener to back button
 document.getElementById('back-button').addEventListener('click', goBackToPaymentOptions);
 
+// Add event listener to back button
+document.getElementById('back-button').addEventListener('click', goBackToPaymentOptions);
 function SubmitSection() {
     var paymentMethods = document.getElementsByName('payment-method');
     var selectedMethod = null;
@@ -138,8 +151,11 @@ function validateCardDetails() {
         return false;
     }
 
+    // Remove spaces from card number
+    var cardNumberNoSpaces = cardNumber.replace(/ /g, '');
+
     // Check if card number is valid (simple check)
-    if (cardNumber.length != 16 || isNaN(cardNumber)) {
+    if (cardNumberNoSpaces.length != 16 || isNaN(cardNumberNoSpaces)) {
         alert('Please enter a valid card number');
         return false;
     }
