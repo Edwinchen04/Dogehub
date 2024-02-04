@@ -24,7 +24,7 @@ function validateCustomAmount() {
         document.getElementById('selected-amount').textContent = ''; 
     } else {
         document.getElementById('selected-amount').textContent = 'Customized amount: RM' + customAmount;
-        proceedToPayment();
+        proceedToPayment(customAmount);
     }
 }
 

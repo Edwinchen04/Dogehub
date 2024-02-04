@@ -87,6 +87,50 @@ body{
     cursor: pointer;
 }
 
+.donate-section button{
+    position: flex;
+    background-color: #5b6c94; /* Darker shade of blue */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; /* Pointer/hand icon */
+    size-adjust: auto;
+    transition-duration: 0.4s; /* Transition effect */
+
+}
+
+.donate-section button:hover {
+    background-color:  #4a5a80; /* Even darker shade of blue on hover */
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button-container button {
+    position: flex;
+    width: 180px;
+    height:100px;
+}
+
+#amount-custom-button {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.donate-section button:hover {
+    background-color:  #4a5a80; /* Even darker shade of blue on hover */
+}
+
 
 
 .donation-section .donation-buttons {
@@ -145,30 +189,7 @@ body{
     color: #fff;
 }
 
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #303f9f;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 12px;
-}
-
-button:hover {
-    background-color: #4051b5;
-}
-
-button:active {
-    background-color: #202a6f;
-}
-
-button:focus {
-    outline: none;
-}
-
-.payment-methods .btn {
-    margin-top: 20px;
-    width: 100%;
+.donate-section ::placeholder { /* Selects all placeholders */
+    color: grey; /* Change to your desired color */
+    opacity: 1; /* Firefox needs this to change the color */
 }

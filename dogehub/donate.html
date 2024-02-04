@@ -78,19 +78,21 @@
                 <br>
             
                 <div id="donation-amounts" class="donation-buttons">     
-                    <h1 class="header">Donation Amount</h1>
-                    <button id="amount-10" onclick="proceedToPayment(10)">RM10</button><br>
-                    <button id="amount-50" onclick="proceedToPayment(50)">RM50</button><br>
-                    <button id="amount-100" onclick="proceedToPayment(100)">RM100</button><br>
-                    <button id="amount-200" onclick="proceedToPayment(200)">RM200</button><br>
-                    <button id="amount-custom-button" onclick="displayCustomAmountInput()">Custom</button>
-                    <div id="custom-amount-input" style="display: none;">
-                        <label for="amount-custom">Enter amount: RM</label>
-                        <input type="text" id="amount-custom" placeholder="Enter amount" >
-                        <button onclick="proceedToPayment()">Submit</button>
+                    <h1 class="header">Donation Amount</h1><br><br>
+                    <div class="button-container">
+                        <button id="amount-10" onclick="proceedToPayment(10)">RM10</button><br>
+                        <button id="amount-50" onclick="proceedToPayment(50)">RM50</button><br>
+                        <button id="amount-100" onclick="proceedToPayment(100)">RM100</button><br>
+                        <button id="amount-200" onclick="proceedToPayment(200)">RM200</button><br>
+                        <button id="amount-custom-button" onclick="displayCustomAmountInput()">Custom</button><br>
                     </div>
-                    <br>
-                </div>
+                    <div id="custom-amount-input" style="display: none;">
+                        <form onsubmit="event.preventDefault(); validateCustomAmount();">
+                            <label for="amount-custom">Enter amount: RM</label>
+                            <input type="text" id="amount-custom" placeholder="Enter amount" >
+                        </form>
+                    </div>
+                </div>    
                 
                 <div id="payment-methods" style="display: none;">
                     <h1 class="header">Payment Method</h1>
