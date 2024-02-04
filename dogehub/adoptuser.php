@@ -1,4 +1,6 @@
-
+<?php
+include("session.php");
+?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -63,14 +65,14 @@ form {
     
       <nav class="navigations">
         <ul class="nav_links">
-          <li><a href="about.php"><button>About Us</button></a></li>
-          <li><a href="adopt.php"><button style="background-color:#512da8;color:white">Adopt</button></a></li>
-          <li><a href="donate.php"><button>Donate</button></a></li>
+          <li><a href="aboutuser.php"><button>About Us</button></a></li>
+          <li><a href="adoptuser.php"><button style="background-color:#512da8;color:white">Adopt</button></a></li>
+          <li><a href="donateuser.php"><button>Donate</button></a></li>
+          <li><a href="applicantuser.php"><button>My Applications</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
-        <a class="cta" href="login.php"><button>Log In</button></a>
-        <a class="cta" href="login.php"><button>Register</button></a>
+        <a class="cta" href="logout.php"><button>Log Out</button></a>
 
       </div>
   </header>

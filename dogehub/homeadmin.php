@@ -14,13 +14,19 @@ include("session.php");
     <?php
     include("connection.php");
 
-    $sql1= "SELECT * FROM user";
+    $sql1= "SELECT * FROM adoption_application";
     $result = mysqli_query($con, $sql1);
-    $total_user = mysqli_num_rows($result);
+    $total_applicant = mysqli_num_rows($result);
 
     $sql2= "SELECT * FROM dog";
     $result2= mysqli_query($con, $sql2);
     $total_dog = mysqli_num_rows($result2);
+
+    $sql3 = "SELECT SUM(amount) AS total_donation FROM receipt";
+    $result3 = mysqli_query($con, $sql3);
+    $row = mysqli_fetch_assoc($result3);
+    $total_donation = "$ " .$row['total_donation'];
+
 
     ?>
 
@@ -49,7 +55,7 @@ include("session.php");
         <ul class="nav_links">
           <li><a href="applicant.php"><button>Applicants</button></a></li>
           <li><a href="admindogs.php"><button>Dogs</button></a></li>
-          <li><a href="donation.php"><button>Donations</button></a></li>
+          <li><a href="donateadmin.php"><button>Donations</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
@@ -69,7 +75,7 @@ include("session.php");
       </div>
       <div class="information">
         <h2>Total Applicants</h2>
-        <h1><?php echo $total_user ?> </h1>
+        <h1><?php echo $total_applicant ?> </h1>
       </div>
     </div>
 
@@ -87,7 +93,7 @@ include("session.php");
     </div>
 
     <div class="box">
-      <a href="donation.php">
+      <a href="donateadmin.php">
         <span class="link"></span>
       </a>
       <div class="icons">
@@ -95,7 +101,7 @@ include("session.php");
       </div>
       <div class="information">
         <h2>Total Donation</h2>
-        <h1>"Total Amount of Donation"</h1>
+        <h1><?php echo $total_donation ?></h1>
       </div>
     </div>
   </div>

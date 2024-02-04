@@ -11,22 +11,27 @@
 <body>
   <header>
     <div class="logo">
+      <a href="home.php">
       <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
+      </a>
     </div>
 
+      
     <div class="search">
       <div class="searchbar">
         <input type="text" placeholder="Search">
       </div>
       <div class="search-icon">
+        <button class="searchicon" name=search-function>
         <img src="Images/search.png" alt="Search Icon" id="search">
+        </button>
       </div>
       
     </div>
     
       <nav class="navigations">
         <ul class="nav_links">
-          <li><a href="aboutguest.php"><button>About Us</button></a></li>
+          <li><a href="about.php"><button>About Us</button></a></li>
           <li><a href="adopt.php"><button>Adopt</button></a></li>
           <li><a href="donate.php"><button>Donate</button></a></li>
         </ul>
@@ -48,8 +53,8 @@
 
   
   <div class="mainbuttons">
-    <button class="mainbutton" id="adopt">Adopt</button>
-    <button class="mainbutton" id="donate">Donate</button>
+    <a href="adopt.php"><button class="mainbutton" id="adopt">Adopt</button></a>
+    <a href="donate.php"><button class="mainbutton" id="donate">Donate</button></a>
   </div>
 
   <div class="images">

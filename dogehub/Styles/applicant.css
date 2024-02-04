@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,700;1,500&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-content: center;
+  background-color: #c9d6ff;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  
+}
+
+.filtersection {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+select#filter {
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 20px 0px 20px;
+}
+
+option#approve {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+option#reject {
+  color: #f44336;
+  font-weight: bold;
+}
+
+option#pending {
+  color: rgb(249, 213, 10);
+  font-weight: bold;
+}
+
+.container {
+  max-height: 1100px;
+  width: 80%;
+  margin-top: 100px;
+  position: relative;
+  
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+table td, table th {
+  border: 2px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+
+.approvebutton {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+}
+
+.approvebutton:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid ;
+  color: #4CAF50;
+}
+
+.rejectbutton {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid #f44336;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+}
+
+.rejectbutton:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid ;
+  color: #f44336;
+}
+
+
+.pending {
+  color: black;
+  font-weight: bold;
+  background-color:yellow;
+  width: 90px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.approved {
+  color: black;
+  font-weight: bold;
+  background-color: #4CAF50;
+  width: 90px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.rejected {
+  color: black;
+  font-weight: bold;
+  background-color: #f44336;
+  width: 90px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+table div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+
+table p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+
+

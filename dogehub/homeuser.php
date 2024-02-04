@@ -29,9 +29,10 @@ include("session.php");
     
       <nav class="navigations">
         <ul class="nav_links">
-          <li><a href="about.php"><button>About Us</button></a></li>
-          <li><a href="adopt.php"><button>Adopt</button></a></li>
-          <li><a href="donate.php"><button>Donate</button></a></li>
+          <li><a href="aboutuser.php"><button>About Us</button></a></li>
+          <li><a href="adoptuser.php"><button>Adopt</button></a></li>
+          <li><a href="donateuser.php"><button>Donate</button></a></li>
+          <li><a href="applicantuser.php"><button>My Applications</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
@@ -51,8 +52,8 @@ include("session.php");
 
   
   <div class="mainbuttons">
-    <button class="mainbutton" id="adopt">Adopt</button>
-    <button class="mainbutton" id="donate">Donate</button>
+    <a href="adoptuser.php"><button class="mainbutton" id="adopt">Adopt</button></a>
+    <a href="donateuser.php"><button class="mainbutton" id="donate">Donate</button></a>
   </div>
 
   <div class="images">

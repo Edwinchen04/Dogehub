@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,700;1,500&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a{
@@ -12,14 +13,15 @@ a{
 }
 
 body{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #c9d6ff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c9d6ff;
 }
 
 .container {
+
     position: relative;
     width: 900px;
     height: 630px;
@@ -87,65 +89,10 @@ body{
     cursor: pointer;
 }
 
-.donate-section button{
-    position: flex;
-    background-color: #5b6c94; /* Darker shade of blue */
-    border: none; /* No border */
-    color: white; /* White text */
-    padding: 15px 32px; /* Padding */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* No underline */
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer; /* Pointer/hand icon */
-    size-adjust: auto;
-    transition-duration: 0.4s; /* Transition effect */
-
-}
-
-.donate-section button:hover {
-    background-color:  #4a5a80; /* Even darker shade of blue on hover */
-}
-
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.button-container button {
-    position: flex;
-    width: 180px;
-    height:100px;
-}
-
-#amount-custom-button {
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-.donate-section button:hover {
-    background-color:  #4a5a80; /* Even darker shade of blue on hover */
-}
-
-
-
-.donation-section .donation-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.donation-section .donation-buttons button {
-    flex-basis: calc(50% - 20px); /* Assuming 10px margin on each side */
-    margin: 10px;
-}
-
-.donation-section .donation-buttons button:last-child {
-    flex-basis: 100%;
+.donate-section.button{
+    background: #303f9f;
+    color: #fff;
+    border: none;
 }
 
 .container.active .donate-section{
@@ -189,7 +136,49 @@ body{
     color: #fff;
 }
 
-.donate-section ::placeholder { /* Selects all placeholders */
-    color: grey; /* Change to your desired color */
-    opacity: 1; /* Firefox needs this to change the color */
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #303f9f;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
 }
+
+button:hover {
+    background-color: #4051b5;
+}
+
+button:active {
+    background-color: #202a6f;
+}
+
+button:focus {
+    outline: none;
+}
+
+.payment-methods .btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+h3 {
+  text-align: center;
+}
+
+
+.donate {
+  background-color: #512da8;
+  color: #fff;
+}
+
+input::placeholder {
+    color: #879498;
+}
+  
+
+
+

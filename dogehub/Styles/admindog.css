@@ -8,7 +8,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   justify-content: center;
   background-color: #c9d6ff;
   font-family: 'Montserrat', sans-serif;
@@ -82,7 +82,7 @@ body{
 
 
 .carousel.no-transition {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 .carousel.dragging {
@@ -248,7 +248,7 @@ img.view_image {
 .dog-form-view .delbtn {
   width: 274.4px;
   right: 10px;
-  bottom: 30px;
+  bottom: 2px;
   position: absolute;
   padding: 10px; 
   background-color: #512da8; 
@@ -291,11 +291,8 @@ img.view_image {
   transition: all 300ms ease-in-out 0ms;
 }
 
-form {
+form .formviewmore{
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
-  max-width: 600px; 
-  margin: 0 auto; 
 }
 
 form.viewmoreform {
@@ -402,6 +399,8 @@ form .addmorebtn {
 .id {
   display: none;
 }
+
+
 
 
 

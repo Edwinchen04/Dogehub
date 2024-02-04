@@ -16,14 +16,11 @@ include("session.php");
 
 
     <style>
-      .search {
-  display: flex;
-  width: 400px;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-}
-</style>
+      form {
+        padding: 20px;
+        margin:0px;
+      }
+  </style>
 </head>
 <body>
   <header>
@@ -50,8 +47,8 @@ include("session.php");
       <nav class="navigations">
         <ul class="nav_links">
           <li><a href="applicant.php"><button>Applicants</button></a></li>
-          <li><a href="dogs.php"><button style="background-color:#512da8;color:white">Dogs</button></a></li>
-          <li><a href="donation.php"><button>Donations</button></a></li>
+          <li><a href="admindogs.php"><button style="background-color:#512da8;color:white">Dogs</button></a></li>
+          <li><a href="donateadmin.php"><button>Donations</button></a></li>
         </ul>
       </nav>
       <div class="calltoactions">
@@ -140,11 +137,11 @@ if(isset($_POST['viewmorebutton'])) {
         x
     </div>
     <?php 
-    echo '<form action="update.php" method="post" enctype="multipart/form-data">';
+    echo '<form class="formviewmore" action="update.php" method="post" enctype="multipart/form-data" style=width:600px;>';
     echo '<h1>Dog Info</h1>';
     echo '<img class="view_image" src="uploads_dogimage/'.$row_view['dog_image'].'" alt="Beagle" draggable="false">';
     echo '<input type="hidden" name="dogid" value="' . $row_view['dog_id'] . '">';
-    echo '<input type="text" name="dogname" value="' . $row_view['dog_name'] . '" required>';
+    echo '<input type="text" name="dogname" placeholder="Dog Name"value="' . $row_view['dog_name'] . '" required>';
     echo '<input type="text" name="dogBreed" value="' . $row_view['breed'] . '" required>';
     echo '<input type="date" name="dob" value="' . $row_view['DOB'] . '" required>';
     echo '<div class="radios">';
@@ -157,7 +154,7 @@ if(isset($_POST['viewmorebutton'])) {
     echo '<input type="text" name="dogWeight" value="' . $row_view['dog_weight'] . '" required>';
     echo '<input type="select" name="dogStatus" value="' . $row_view['adoption_status'] . '" required>';
     echo '<textarea name="desc">' . $row_view['dog_description'] . '</textarea><br>';
-    //echo '<input type="file" name="dog_image" required><br>';
+    echo '<input type="file" name="dog_image" required><br>';
     echo '<button type="submit" name="update" class="addmorebtn">Update</button>';
     echo '</form>'; // Close the form tag here
     echo '<a class="delete" onclick="return confirm(\'Are you sure you want to delete this record ? \')" href="delete.php?dog_id='.$row_view['dog_id'].'">
@@ -167,7 +164,7 @@ if(isset($_POST['viewmorebutton'])) {
     ?>
 </div>
 
-    
+      
     
 
   <!--<div class="dog-form-view">

@@ -12,37 +12,24 @@ whydonateButton.addEventListener('click', () => {
 
 
 function displayCustomAmountInput() {
-    document.getElementById('custom-amount-input').style.display = 'block';
-}
-
-
-function validateCustomAmount() {
-    var customAmount = parseFloat(document.getElementById('amount-custom').value);
-    if (isNaN(customAmount) || customAmount <= 10) {
-        alert('Please enter more than RM10');
-        document.getElementById('amount-custom').value = '';
-        document.getElementById('selected-amount').textContent = ''; 
+    var customAmountRadio = document.getElementById('amount-custom-radio');
+    var customAmountInput = document.getElementById('amount-custom');
+    if (customAmountRadio.checked) {
+        customAmountInput.style.display = 'inline';
     } else {
-        document.getElementById('selected-amount').textContent = 'Customized amount: RM' + customAmount;
-        proceedToPayment(customAmount);
+        customAmountInput.style.display = 'none';
     }
 }
 
-function proceedToPayment(amount) {
+function proceedToPayment() {
     var selectedAmount;
-    if (amount) {
-        // If an amount is provided, use it
-        selectedAmount = amount;
-    } else {
-        // Otherwise, get the custom amount entered by the user
-        var customAmountInput = document.getElementById('amount-custom');
-        selectedAmount = customAmountInput.value;
-    }
+    var customAmountRadio = document.getElementById('amount-custom-radio');
+    var customAmountInput = document.getElementById('amount-custom');
 
-    // Validate the selected amount
-    if (!selectedAmount || isNaN(selectedAmount)) {
-        alert('Please enter a valid amount');
-        return;
+    if (customAmountRadio.checked) {
+        selectedAmount = customAmountInput.value;
+    } else {
+        selectedAmount = document.querySelector('input[name="donation_amount"]:checked').value;
     }
 
     document.getElementById('selected-amount').textContent = 'Selected amount: RM' + selectedAmount;
@@ -53,40 +40,45 @@ function proceedToPayment(amount) {
 function goBackToDonation() {
     document.getElementById('donation-amounts').style.display = 'block';
     document.getElementById('payment-methods').style.display = 'none';
-    document.getElementById('amount-custom').value = '';  // Resets the custom donation amount
+}
 
-    // Resets the selected donation amount
-    var selectedAmount = document.querySelector('input[name="donation-amount"]:checked');
-    if (selectedAmount) {
-        selectedAmount.checked = false;
+document.getElementById('custom-amount-button').addEventListener('click', validateCustomAmount);
+document.getElementById('amount-custom').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        validateCustomAmount();
+    }
+});
+
+function validateCustomAmount() {
+    var customAmount = parseFloat(document.getElementById('amount-custom').value);
+    if (isNaN(customAmount) || customAmount <= 10) {
+        alert('Please enter more than RM10');
+        document.getElementById('amount-custom').value = '';
+        document.getElementById('selected-amount').textContent = ''; 
+    } else {
+        document.getElementById('selected-amount').textContent = 'Customized amount: RM' + customAmount;
+        proceedToPayment();
     }
 }
 
-function PaymentMethodDetails() {
-    var selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
-    var selectedAmount = document.getElementById('selected-amount').textContent;
-
-    // Store the selected donation amount in localStorage
-    localStorage.setItem('selectedAmount', selectedAmount);
-
-    // Hide all sections
-    document.getElementById('donation-amounts').style.display = 'none';
-    document.getElementById('payment-methods').style.display = 'none';
-
-    // Show the selected payment method details
-    switch (selectedPaymentMethod) {
-        case 'touch-n-go':
-            document.getElementById('touch-n-go-details').style.display = 'block';
-            break;
-        case 'bank-transfer':
-            document.getElementById('bank-transfer-details').style.display = 'block';
-            break;
-        case 'debit-credit':
-            document.getElementById('debit-credit-details').style.display = 'block';
-            break;
-        default:
-            console.error('Invalid payment method: ' + selectedPaymentMethod);
+function displayPaymentDetails(value) {
+    // Hide all payment details sections
+    var paymentDetails = document.getElementsByClassName('payment-details');
+    for (var i = 0; i < paymentDetails.length; i++) {
+        paymentDetails[i].style.display = 'none';
     }
+
+    // Hide all payment options
+    var paymentOptions = document.getElementsByClassName('payment-option');
+    for (var i = 0; i < paymentOptions.length; i++) {
+        paymentOptions[i].style.display = 'none';
+    }
+
+    // Show the selected payment details section
+    document.getElementById(value + '-details').style.display = 'block';
+
+    // Show the selected payment option
+    document.getElementById(value + '-option').style.display = 'block';
 }
 
 function goBackToPaymentOptions() {
@@ -96,23 +88,18 @@ function goBackToPaymentOptions() {
         paymentDetails[i].style.display = 'none';
     }
 
-    // Show the payment methods section
-    document.getElementById('payment-methods').style.display = 'block';
-
-    // Reset the checked state of the payment method radio buttons
-    var paymentMethods = document.getElementsByName('payment-method');
-    for (var i = 0; i < paymentMethods.length; i++) {
-        paymentMethods[i].checked = false;
+    // Show all payment options
+    var paymentOptions = document.getElementsByClassName('payment-option');
+    for (var i = 0; i < paymentOptions.length; i++) {
+        paymentOptions[i].style.display = 'block';
     }
 }
 
 // Add event listener to back button
 document.getElementById('back-button').addEventListener('click', goBackToPaymentOptions);
 
-// Add event listener to back button
-document.getElementById('back-button').addEventListener('click', goBackToPaymentOptions);
 function SubmitSection() {
-    var paymentMethods = document.getElementsByName('payment-method');
+    var paymentMethods = document.getElementsByName('payment_method');
     var selectedMethod = null;
 
     for (var i = 0; i < paymentMethods.length; i++) {
@@ -139,7 +126,7 @@ function SubmitSection() {
     }
 }
 
-function validateCardDetails() {
+/*function validateCardDetails() {
     var cardholderName = document.getElementById('cardholder-name').value;
     var cardNumber = document.getElementById('card-number').value;
     var expiryDate = document.getElementById('expiry-date').value;
@@ -151,11 +138,8 @@ function validateCardDetails() {
         return false;
     }
 
-    // Remove spaces from card number
-    var cardNumberNoSpaces = cardNumber.replace(/ /g, '');
-
     // Check if card number is valid (simple check)
-    if (cardNumberNoSpaces.length != 16 || isNaN(cardNumberNoSpaces)) {
+    if (cardNumber.length != 16 || isNaN(cardNumber)) {
         alert('Please enter a valid card number');
         return false;
     }
@@ -174,4 +158,37 @@ function validateCardDetails() {
 
     // If all checks pass, return true
     return true;
+}*/
+
+
+function prepareForm() {
+    // Set the selected payment method in the hidden input field
+    var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+    document.getElementById('paymentMethodInput').value = selectedPaymentMethod ? selectedPaymentMethod.value : '';
+
+    // Enable and make visible the necessary input fields
+    enableAndShowCardDetails();
+
+    // Submit the form
+    document.getElementById('donationForm').submit();
 }
+
+function enableAndShowCardDetails() {
+    var cardholderName = document.getElementById('cardholder-name');
+    var cardNumber = document.getElementById('card-number');
+    var expiryDate = document.getElementById('expiry-date');
+    var cvv = document.getElementById('cvv');
+
+    // Enable and show the card details input fields
+    cardholderName.removeAttribute('disabled');
+    cardNumber.removeAttribute('disabled');
+    expiryDate.removeAttribute('disabled');
+    cvv.removeAttribute('disabled');
+
+    // Set the display style to block to make them visible
+    cardholderName.style.display = 'block';
+    cardNumber.style.display = 'block';
+    expiryDate.style.display = 'block';
+    cvv.style.display = 'block';
+}
+

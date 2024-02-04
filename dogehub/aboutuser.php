@@ -1,3 +1,6 @@
+<?php
+include("session.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,32 +14,31 @@
 
     <header>
         <div class="logo">
-          <a href="home.php">
+          <a href="homeuser.php">
           <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
           </a>
         </div>
-
+    
         <div class="search">
-      <div class="searchbar">
-        <input type="text" placeholder="Search" name="searchName">
-      </div>
-      <div class="search-icon">
-        <button class="searchicon" name="search-function">
-        <img src="Images/search.png" alt="Search Icon" id="search">
-        </button>
-      </div>
-    </div>
+          <div class="searchbar">
+            <input type="text" placeholder="Search">
+          </div>
+          <div class="search-icon">
+            <img src="Images/search.png" alt="Search Icon" id="search">
+          </div>
+          
+        </div>
         
           <nav class="navigations">
             <ul class="nav_links">
-              <li><a href="about.php"><button class="about">About Us</button></a></li>
-              <li><a href="adopt.php"><button>Adopt</button></a></li>
-              <li><a href="donate.php"><button>Donate</button></a></li>
+              <li><a href="aboutuser.php"><button class="about">About Us</button></a></li>
+              <li><a href="adoptuser.php"><button>Adopt</button></a></li>
+              <li><a href="donateuser.php"><button>Donate</button></a></li>
+              <li><a href="applicantuser.php"><button>My Applications</button></a></li>
             </ul>
           </nav>
           <div class="calltoactions">
-            <a class="cta" href="login.php"><button>Log In</button></a>
-            <a class="cta" href="login.php"><button>Register</button></a>
+            <a class="cta" href="logout.php"><button>Log Out</button></a>
     
           </div>
       </header>
