@@ -102,7 +102,7 @@ include("session.php");
                         
                         <input type="text" id="amount-custom-input" name="custom_donation_amount" placeholder="Enter amount">
                         
-                        <br><button id="custom-amount-button">Enter</button>
+                        <br><button typeid="custom-amount-button">Enter</button>
                         <br>
                         <br>
                     </div>
@@ -133,14 +133,14 @@ include("session.php");
 
                         <hr>
                         <div id="touch-n-go-details" class="payment-details" style="display: none;">
-                            <button onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
                             <h3>Touch n GO / Duitnow</h3>
                             <p>Scan the QR code to make a payment</p>
                             <img src="Images/QR.png" alt="TNG QR Code" style="height: 200px;width: 200px;">
                         </div>
                         
                         <div id="bank-transfer-details" class="payment-details" style="display: none;">
-                            <button onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button  type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
                             <h3>Bank Transfer</h3>
                             <p>Transfer the donation to the following account</p>
                             <p>Account Number: 1234567890</p>
@@ -150,7 +150,7 @@ include("session.php");
                         
 
                         <hr><br>
-                        <button onclick="goBackToDonation()">Back</button>
+                        <button type="button" onclick="goBackToDonation()">Back</button>
                         <button type="submit" name="submit_button">Submit</button>
                     </div>
                 </form>

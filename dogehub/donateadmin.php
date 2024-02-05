@@ -93,7 +93,7 @@ include("session.php");
                             <circle cx="38" cy="38" r="36"></circle>
                         </svg>
                         <div class="number">
-                            <p>0%</p>
+                            <p>69%</p>
                         </div>
                     </div>
                     <small class="text-muted">Last 24 hours</small>
@@ -112,7 +112,7 @@ include("session.php");
                             <circle cx="38" cy="38" r="36"></circle>
                         </svg>
                         <div class="number">
-                            <p>0%</p>
+                            <p>69%</p>
                         </div>
                     </div>
                     <small class="text-muted">Last 7 days</small>
@@ -131,7 +131,7 @@ include("session.php");
                             <circle cx="38" cy="38" r="36"></circle>
                         </svg>
                         <div class="number">
-                            <p>0%</p>
+                            <p>69%</p>
                         </div>
                     </div>
                     <small class="text-muted">Last month</small>

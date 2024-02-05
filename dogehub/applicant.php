@@ -79,7 +79,7 @@ include("session.php");
           <?php
           
             include("connection.php");
-            $sql = "SELECT * FROM adoption_application";
+            $sql = "SELECT * FROM adoption_application WHERE application_status = 'pending' OR application_status = 'rejected'";
             if(isset($_POST['filterbutton'])) {
               $filter = $_POST['filter'];
               if($filter != "all") {
@@ -100,6 +100,7 @@ include("session.php");
                   <td>
                     <form method='post' action='updateapplicant.php'>
                       <input type='hidden' name='application_id' value='".$row['application_id']."'>
+                      <input type='hidden' name='dog_id' value='".$row['dog_id']."'>
                       <button type='submit' name='approvebutton' class='approvebutton'>Approve</button>
                       <button type='submit' name='rejectbutton' class='rejectbutton'>Reject</button>
                     </form>

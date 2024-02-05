@@ -91,7 +91,7 @@ img.dogimage {
   flex-direction: column;
   transform: scale(0.9);
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
 }
 
@@ -138,4 +138,16 @@ img.dogimage {
   justify-content: center;
   align-items: center;
   border-radius: 25px;
+}
+
+button.cancelbutton {
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+}
+
+button.cancelbutton:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
 }

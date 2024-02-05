@@ -75,16 +75,18 @@ form {
       </div>
   </header>
   <?php
-    include("connection.php");
-    $sql = "SELECT * FROM dog ";
-   
-    if(isset($_POST['search-function'])) {
-      $searchName = $_POST['searchName'];
-      $sql = "SELECT * FROM dog WHERE dog_name LIKE '%$searchName%'";
-    }
-  
-    $result = mysqli_query($con, $sql);
-  ?>
+include("connection.php");
+
+$sql = "SELECT * FROM dog WHERE adoption_status = 'Available'";
+
+if (isset($_POST['search-function'])) {
+    $searchName = $_POST['searchName'];
+    $sql = "SELECT * FROM dog WHERE dog_name LIKE '%$searchName%' AND adoption_status = 'Available'";
+}
+
+$result = mysqli_query($con, $sql);
+?>
+
   
 
   <div class="wrapper">

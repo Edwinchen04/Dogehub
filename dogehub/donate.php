@@ -16,7 +16,7 @@
 
     <header>
       <div class="logo">
-        <a href="homeuser.php">
+        <a href="home.php">
         <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
         </a>
       </div>

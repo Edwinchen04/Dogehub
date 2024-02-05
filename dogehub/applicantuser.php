@@ -78,7 +78,7 @@ $result = mysqli_query($con, $sql);
 <div class="applications">
     <?php
     if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $statusClass = strtolower($row["application_status"]); 
             echo '<div class="application">';
             echo '<div class="leftsection">';
@@ -88,10 +88,18 @@ $result = mysqli_query($con, $sql);
             echo '</div>';
             echo '<div class="midsection">';
             echo '<div class="deschead" style="position:absolute; top:0;color:grey; font-weight:bold;">Details</div>';
-            echo '<p><strong>Application Date : </strong> '.$row['application_date'].'</p>';
+            echo '<br><p><strong>Application Date : </strong> '.$row['application_date'].'</p>';
             echo '<p><strong>Breed : </strong> '.$row['breed'].'</p>';  
             echo '<p><strong>Gender : </strong> '.$row['gender'].'</p>';
             echo '<p><strong>Color : </strong> '.$row['color'].'</p>';
+            
+            if ($row["application_status"] == 'Pending') {
+                echo '<form class="cancel_button" method="post" action="cancel_application.php">';
+                echo '<input type="hidden" name="application_id" value="'.$row['application_id'].'">';
+                echo '<button class="cancelbutton" type="submit" name="cancel_button">Cancel Application</button>';
+                echo '</form>';
+            }
+            
             echo '</div>';
             echo '<div class="rightsection">';
             echo '<div class="statushead" style="position:absolute;top:0;color:grey; font-weight:bold;">Status</div>';
@@ -99,9 +107,17 @@ $result = mysqli_query($con, $sql);
             echo '</div>';
             echo '</div>';
         }
+    } else {
+        echo '<h1 style="text-align:center;">You have no applications</h1>';
+        // Display the "Adopt Now" button
+        echo '<form method="post" action="adoptuser.php">';
+        echo '<button type="submit" name="adopt_now_button">Adopt Now</button>';
+        echo '</form>';
     }
     ?>
 </div>
+
+
 
 
 
