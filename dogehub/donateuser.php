@@ -100,9 +100,9 @@ include("session.php");
                         <input type="radio" id="amount-custom-radio" name="donation_amount" value="custom" onchange="displayCustomAmountInput()">
                         <label for="amount-custom-radio">Custom amount: RM</label>
                         
-                        <input type="text" id="amount-custom-input" name="custom_donation_amount" placeholder="Enter amount">
+                        <input type="text" id="amount-custom" name="donation_amount" placeholder="Enter amount">
                         
-                        <br><button typeid="custom-amount-button">Enter</button>
+                        <br><button type="button" id="amount-custom-button">Enter</button>
                         <br>
                         <br>
                     </div>

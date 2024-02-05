@@ -196,3 +196,4 @@ function enableAndShowCardDetails() {
     expiryDate.style.display = 'block';
     cvv.style.display = 'block';
 }
+
