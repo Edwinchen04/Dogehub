@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const whydonateButton = document.querySelector('.whydonate-section .header');
 const donateButton = document.querySelector('.donate-section .header');
+const enterButton = document.getElementById('amount-custom-button');
 
 donateButton.addEventListener('click', () => {
     container.classList.add('active');
@@ -10,6 +11,8 @@ whydonateButton.addEventListener('click', () => {
     container.classList.remove('active');
 });
 
+enterButton.addEventListener('click', () => {
+    proceedToPayment();});
 
 function displayCustomAmountInput() {
     var customAmountRadio = document.getElementById('amount-custom-radio');
@@ -25,6 +28,7 @@ function proceedToPayment() {
     var selectedAmount;
     var customAmountRadio = document.getElementById('amount-custom-radio');
     var customAmountInput = document.getElementById('amount-custom');
+    
 
     if (customAmountRadio.checked) {
         selectedAmount = customAmountInput.value;
@@ -32,6 +36,7 @@ function proceedToPayment() {
         selectedAmount = document.querySelector('input[name="donation_amount"]:checked').value;
     }
 
+    
     document.getElementById('selected-amount').textContent = 'Selected amount: RM' + selectedAmount;
     document.getElementById('donation-amounts').style.display = 'none';
     document.getElementById('payment-methods').style.display = 'block';
@@ -191,4 +196,3 @@ function enableAndShowCardDetails() {
     expiryDate.style.display = 'block';
     cvv.style.display = 'block';
 }
-

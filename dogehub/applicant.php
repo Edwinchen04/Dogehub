@@ -11,9 +11,6 @@ include("session.php");
   <link rel="stylesheet" href="Styles/header.css">
   <link rel="stylesheet" href="Styles/applicant.css">
 
-  <script src="scripts/applicant.js" defer></script>
-
-
 </head>
 <body>
   <header>
