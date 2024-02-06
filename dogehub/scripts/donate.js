@@ -30,7 +30,7 @@ function displayCustomAmountInput() {
 function proceedToPayment() {
     var selectedAmount;
     var customAmountRadio = document.getElementById('amount-custom-radio');
-    var customAmountInput = document.getElementById('amount-custom');
+    var customAmountInput = document.getElementById('custom-amount-input');
     
 
     if (customAmountRadio.checked) {
@@ -58,20 +58,30 @@ document.getElementById('amount-custom').addEventListener('keypress', function(e
 });
 
 function validateDonationAmount() {
-    var customAmountInput = document.getElementById('amount-custom');
+    var customAmountInput = document.getElementById('custom-amount-input');
     var customAmount = parseFloat(customAmountInput.value);
     
-    // Check if the entered amount is a valid number and greater than 10
-    if (isNaN(customAmount) || customAmount <= 10) {
-        alert('Please enter a donation amount greater than RM10');
-        customAmountInput.value = ''; // Clear the input field
-        customAmountInput.focus(); // Set focus back to the input field
-        return false; // Return false to indicate validation failure
+    // Check if a donation amount is selected
+    var selectedAmount = document.querySelector('input[name="donation_amount"]:checked');
+    if (!selectedAmount) {
+        alert('Please select a donation amount.');
+        return false;
     }
     
-    // Validation passed
+    // If custom amount is selected, validate it
+    if (selectedAmount.value === 'custom') {
+        if (isNaN(customAmount) || customAmount <= 10) {
+            alert('Please enter a donation amount greater than RM10.');
+            customAmountInput.value = ''; // Clear the input field
+            customAmountInput.focus(); // Set focus back to the input field
+            return false; // Return false to indicate validation failure
+        }
+    }
+
     return true; // Return true to indicate validation success
 }
+
+
 
 
 function displayPaymentDetails(value) {
@@ -124,20 +134,24 @@ function SubmitSection() {
 
     if (selectedMethod === null) {
         alert('Please select a payment method');
+        return; // Prevent form submission if payment method is not selected
     } else {
         var paymentDetails = document.getElementById(selectedMethod + '-details');
         if (paymentDetails.style.display !== 'block') {
             alert('Please enter your payment details');
+            return; // Prevent form submission if payment details are not entered
         } else {
             // If the selected method is debit-credit, validate the card details
             if (selectedMethod === 'debit-credit' && !validateCardDetails()) {
-                return;
+                return; // Prevent form submission if card details are not valid
             }
-            // Proceed to the next section
+            // Proceed to the next section or submit the form
             alert('Thank you for your donation!');
+            // Optionally, submit the form here
         }
     }
 }
+
 
 /*function validateCardDetails() {
     var cardholderName = document.getElementById('cardholder-name').value;
@@ -204,3 +218,4 @@ function enableAndShowCardDetails() {
     expiryDate.style.display = 'block';
     cvv.style.display = 'block';
 }
+

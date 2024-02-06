@@ -80,80 +80,81 @@ include("session.php");
             </div>
         
             <div class="donate-section">
-                <form action="donateinsert.php" method="post">
-                    <h1 class="header">Donate</h1>
+            <form action="donateinsert.php" method="post">
+                <h1 class="header">Donate</h1>
+                <br>
+                <div id="donation-amounts">
+                    <h1 class="header">Donate Amount</h1>
+                    
+                    <!-- Donation amount selection inputs -->
+                    <input type="radio" id="amount-10" name="donation_amount" value="10" onchange="proceedToPayment()">
+                    <label for="amount-10">RM10</label><br>
+                    
+                    <input type="radio" id="amount-50" name="donation_amount" value="50" onchange="proceedToPayment()">
+                    <label for="amount-50">RM50</label><br>
+                    
+                    <input type="radio" id="amount-100" name="donation_amount" value="100" onchange="proceedToPayment()">
+                    <label for="amount-100">RM100</label><br>
+                    
+                    <!-- Custom amount input -->
+                    <input type="radio" id="amount-custom-radio" name="donation_amount" value="custom">
+                    <label for="amount-custom-radio">Custom amount: RM</label>
+                    
+                    <input type="text" id="custom-amount-input" name="custom_donation_amount" placeholder="Enter amount">
+                    
+                    <br><button type="button" id="amount-custom-button">Enter</button>
                     <br>
-                    <div id="donation-amounts">
-                        <h1 class="header">Donate Amount</h1>
-                        
-                        <!-- Donation amount selection inputs -->
-                        <input type="radio" id="amount-10" name="donation_amount" value="10" onchange="proceedToPayment()">
-                        <label for="amount-10">RM10</label><br>
-                        
-                        <input type="radio" id="amount-50" name="donation_amount" value="50" onchange="proceedToPayment()">
-                        <label for="amount-50">RM50</label><br>
-                        
-                        <input type="radio" id="amount-100" name="donation_amount" value="100" onchange="proceedToPayment()">
-                        <label for="amount-100">RM100</label><br>
-                        
-                        <!-- Custom amount input -->
-                        <input type="radio" id="amount-custom-radio" name="donation_amount" value="custom" >
-                        <label for="amount-custom-radio">Custom amount: RM</label>
-                        
-                        <input type="text" id="amount-custom" name="donation_amount" placeholder="Enter amount">
-                        
-                        <br><button type="button" id="amount-custom-button">Enter</button>
-                        <br>
-                        <br>
+                    <br>
+                </div>
+
+                
+                <div id="payment-methods" style="display: none;">
+                    <h1 class="header">Payment Method</h1>
+                    <div id="selected-amount"></div>
+                
+                    <div class="payment-option">
+                        <input type="radio" id="touch-n-go-option" name="payment_method" value="touch-n-go" onchange="displayPaymentDetails(this.value)" required>
+                        <label for="touch-n-go-option">Touch'N Go/Duitnow</label>
+                        <div class="qr-icons">
+                            <img src="Images/TNG.png" alt="TNG Icon" style="height: 25px;width: 25px;">
+                            <img src="Images/Duitnow.png" alt="Duitnow Icon" style="height: 25px;width: 25px;">
+                        </div>
                     </div>
 
+                    <hr>
                     
-                    <div id="payment-methods" style="display: none;">
-                        <h1 class="header">Payment Method</h1>
-                        <div id="selected-amount"></div>
-                    
-                        <div class="payment-option">
-                            <input type="radio" id="touch-n-go-option" name="payment_method" value="touch-n-go" onchange="displayPaymentDetails(this.value)">
-                            <label for="touch-n-go-option">Touch'N Go/Duitnow</label>
-                            <div class="qr-icons">
-                                <img src="Images/TNG.png" alt="TNG Icon" style="height: 25px;width: 25px;">
-                                <img src="Images/Duitnow.png" alt="Duitnow Icon" style="height: 25px;width: 25px;">
-                            </div>
+                    <div class="payment-option">
+                        <input type="radio" id="bank-transfer-option" name="payment_method" value="bank-transfer" onchange="displayPaymentDetails(this.value)" required>
+                        <label for="bank-transfer-option">Bank Transfer</label>
+                        <div class="bank-icons">
+                            <img src="Images/bank.png" alt="BANK Icon" style="height: 25px;width: 120px;">
                         </div>
+                    </div>                    
 
-                        <hr>
-                        
-                        <div class="payment-option">
-                            <input type="radio" id="bank-transfer-option" name="payment_method" value="bank-transfer" onchange="displayPaymentDetails(this.value)">
-                            <label for="bank-transfer-option">Bank Transfer</label>
-                            <div class="bank-icons">
-                                <img src="Images/bank.png" alt="BANK Icon" style="height: 25px;width: 120px;">
-                            </div>
-                        </div>                    
-
-                        <hr>
-                        <div id="touch-n-go-details" class="payment-details" style="display: none;">
-                            <button type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
-                            <h3>Touch n GO / Duitnow</h3>
-                            <p>Scan the QR code to make a payment</p>
-                            <img src="Images/QR.png" alt="TNG QR Code" style="height: 200px;width: 200px;">
-                        </div>
-                        
-                        <div id="bank-transfer-details" class="payment-details" style="display: none;">
-                            <button  type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
-                            <h3>Bank Transfer</h3>
-                            <p>Transfer the donation to the following account</p>
-                            <p>Account Number: 1234567890</p>
-                            <p>Account Name: Dogehub</p>
-                            <p>Bank: Maybank</p>
-                        </div>
-                        
-
-                        <hr><br>
-                        <button type="button" onclick="goBackToDonation()">Back</button>
-                        <button type="submit" name="submit_button">Submit</button>
+                    <hr>
+                    <div id="touch-n-go-details" class="payment-details" style="display: none;">
+                        <button type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                        <h3>Touch n GO / Duitnow</h3>
+                        <p>Scan the QR code to make a payment</p>
+                        <img src="Images/QR.png" alt="TNG QR Code" style="height: 200px;width: 200px;">
                     </div>
-                </form>
+                    
+                    <div id="bank-transfer-details" class="payment-details" style="display: none;">
+                        <button  type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                        <h3>Bank Transfer</h3>
+                        <p>Transfer the donation to the following account</p>
+                        <p>Account Number: 1234567890</p>
+                        <p>Account Name: Dogehub</p>
+                        <p>Bank: Maybank</p>
+                    </div>
+                    
+
+                    <hr><br>
+                    <button type="button" onclick="goBackToDonation()">Back</button>
+                    <button type="submit" name="submit_button">Submit</button>
+                </div>
+            </form>
+
             </div>
         </div>
     </div>
