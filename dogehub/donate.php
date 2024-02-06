@@ -1,4 +1,6 @@
-
+<?php
+include("session.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,7 @@
 
     <header>
       <div class="logo">
-        <a href="home.php">
+        <a href="homeuser.php">
         <img src="Images/dogehub_logo.png" alt="DogeHub Logo" id="logo">
         </a>
       </div>
@@ -33,14 +35,14 @@
       
         <nav class="navigations">
           <ul class="nav_links">
-            <li><a href="about.php"><button>About Us</button></a></li>
-            <li><a href="adopt.php"><button>Adopt</button></a></li>
-            <li><a href="donate.php"><button class="donate">Donate</button></a></li>
+            <li><a href="aboutuser.php"><button>About Us</button></a></li>
+            <li><a href="adoptuser.php"><button>Adopt</button></a></li>
+            <li><a href="donateuser.php"><button class="donate">Donate</button></a></li>
+            <li><a href="applicantuser.php"><button>My Applications</button></a></li>
           </ul>
         </nav>
         <div class="calltoactions">
-          <a class="cta" href="login.php"><button>Log In</button></a>
-          <a class="cta" href="login.php"><button>Register</button></a>
+          <a class="cta" href="logout.php"><button>Log Out</button></a>
           
         </div>
     </header>
@@ -81,22 +83,30 @@
                 <form action="donateinsert.php" method="post">
                     <h1 class="header">Donate</h1>
                     <br>
-                    <div id="donation-amounts">     
+                    <div id="donation-amounts">
                         <h1 class="header">Donate Amount</h1>
+                        
                         <!-- Donation amount selection inputs -->
                         <input type="radio" id="amount-10" name="donation_amount" value="10" onchange="proceedToPayment()">
                         <label for="amount-10">RM10</label><br>
+                        
                         <input type="radio" id="amount-50" name="donation_amount" value="50" onchange="proceedToPayment()">
                         <label for="amount-50">RM50</label><br>
+                        
                         <input type="radio" id="amount-100" name="donation_amount" value="100" onchange="proceedToPayment()">
                         <label for="amount-100">RM100</label><br>
-                        <input type="radio" id="amount-custom-radio" name="donation_amount" value="custom" onchange="displayCustomAmountInput()">
-                        <label  for="amount-custom-radio">Custom amount: RM</label>
-                        <input type="text" id="amount-custom" name="donation_amount" placeholder="Enter amount" >
-                        <br><button id="custom-amount-button">Enter</button>
+                        
+                        <!-- Custom amount input -->
+                        <input type="radio" id="amount-custom-radio" name="donation_amount" value="custom" >
+                        <label for="amount-custom-radio">Custom amount: RM</label>
+                        
+                        <input type="text" id="amount-custom" name="donation_amount" placeholder="Enter amount">
+                        
+                        <br><button type="button" id="amount-custom-button">Enter</button>
                         <br>
                         <br>
                     </div>
+
                     
                     <div id="payment-methods" style="display: none;">
                         <h1 class="header">Payment Method</h1>
@@ -122,27 +132,25 @@
                         </div>                    
 
                         <hr>
-
-                    
                         <div id="touch-n-go-details" class="payment-details" style="display: none;">
-                            <button onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
                             <h3>Touch n GO / Duitnow</h3>
                             <p>Scan the QR code to make a payment</p>
                             <img src="Images/QR.png" alt="TNG QR Code" style="height: 200px;width: 200px;">
                         </div>
                         
                         <div id="bank-transfer-details" class="payment-details" style="display: none;">
-                            <button onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button  type="button" onclick="goBackToPaymentOptions()"><i class="fa-solid fa-arrow-left"></i></button>
                             <h3>Bank Transfer</h3>
                             <p>Transfer the donation to the following account</p>
                             <p>Account Number: 1234567890</p>
                             <p>Account Name: Dogehub</p>
                             <p>Bank: Maybank</p>
                         </div>
-                    
+                        
 
                         <hr><br>
-                        <button onclick="goBackToDonation()">Back</button>
+                        <button type="button" onclick="goBackToDonation()">Back</button>
                         <button type="submit" name="submit_button">Submit</button>
                     </div>
                 </form>
