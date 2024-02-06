@@ -12,7 +12,10 @@ whydonateButton.addEventListener('click', () => {
 });
 
 enterButton.addEventListener('click', () => {
-    proceedToPayment();});
+    if (validateDonationAmount()) {
+        proceedToPayment();
+    }
+});
 
 function displayCustomAmountInput() {
     var customAmountRadio = document.getElementById('amount-custom-radio');
@@ -47,24 +50,29 @@ function goBackToDonation() {
     document.getElementById('payment-methods').style.display = 'none';
 }
 
-document.getElementById('custom-amount-button').addEventListener('click', validateCustomAmount);
+document.getElementById('custom-amount-button').addEventListener('click', validateDonationAmount);
 document.getElementById('amount-custom').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
-        validateCustomAmount();
+        validateDonationAmount();
     }
 });
 
-function validateCustomAmount() {
-    var customAmount = parseFloat(document.getElementById('amount-custom').value);
+function validateDonationAmount() {
+    var customAmountInput = document.getElementById('amount-custom');
+    var customAmount = parseFloat(customAmountInput.value);
+    
+    // Check if the entered amount is a valid number and greater than 10
     if (isNaN(customAmount) || customAmount <= 10) {
-        alert('Please enter more than RM10');
-        document.getElementById('amount-custom').value = '';
-        document.getElementById('selected-amount').textContent = ''; 
-    } else {
-        document.getElementById('selected-amount').textContent = 'Customized amount: RM' + customAmount;
-        proceedToPayment();
+        alert('Please enter a donation amount greater than RM10');
+        customAmountInput.value = ''; // Clear the input field
+        customAmountInput.focus(); // Set focus back to the input field
+        return false; // Return false to indicate validation failure
     }
+    
+    // Validation passed
+    return true; // Return true to indicate validation success
 }
+
 
 function displayPaymentDetails(value) {
     // Hide all payment details sections
@@ -196,4 +204,3 @@ function enableAndShowCardDetails() {
     expiryDate.style.display = 'block';
     cvv.style.display = 'block';
 }
-
