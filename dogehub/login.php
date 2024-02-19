@@ -105,7 +105,6 @@ if (isset($_POST['sign-in-button'])) {
 
                 <input type="email" placeholder="Email" name="useremail" required>
                 <input type="password" placeholder="Password" name="userpassword" required>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank">Forget Your Password?</a>
                 <button type="submit" name="sign-in-button">Sign In</button>
             </form>
         </div>
